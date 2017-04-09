@@ -4,32 +4,20 @@ import java.awt.*;
 public class layouti
 {
   static JFrame f;
-  BorderLayout gb;
-  JButton b1,b2,b3,b4,b5,b6;
   JPanel p;
+  JTable t;
+  
+  String cals[] = {"SNo.","Name","Age","Address","Phone"}; 
+  String data[][]={{"S001","jOHN","25","Bareilly","9452349764"};{"S002","Smith","22","Rampur","9599589845"};};
   public layouti()
   {
     p=new JPanel();
     f.getContentPane().add(p);
-    gb=new BorderLayout();
-    p.setLayout(gb);
-
-    b1=new JButton("Pantaloons");
-    b2=new JButton("Big Bazaar");
-    b3=new JButton("MAX");
-    //b4=new JButton("Shopper$ Stop");
-    //b5=new JButton("Titan");
-    //b6=new JButton("Food Panda");
-
-    b1.setBounds(60,128,90,25);
-    b2.setBounds(149,174,90,25);
-    b3.setBounds(549,324,90,25);
- 
-    p.add(b1);
-    p.add(b2);
-    p.add(b3);
-    //p.add(b4);
-    //p.add(b5);
+    t=new JTable(data,cals);
+    JScrollPane sp= new JScrollPane(t);
+    sp.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+    sp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+    p.add(sp);
   }
   public static void main(String args[])
   {
